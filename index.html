@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RatoGBM's Page</title>
+    </head>
+    <body>
+            <div id="lantern">
+                <div id="canopy">
+                    <div id="canopy-top"></div>
+                    <div id="canopy-bottom"></div>
+                </div>
+                <div id="globe">
+                    <h1>Rato<br/>GBM</h1>
+                </div>
+                <div id="glass">
+                </div>
+                <div id="lantern-base"></div>
+            </div>
+            <div id="lamp-post">
+                <div class="poster">
+                    <h4><a href="https://github.com/RatoGBM">Github</a></h4>
+                </div>
+                <div class="poster">
+                    <h3><a href="https://ratogbm.github.io/records_from_screwing_around/">Records from Screwing Around</a></h3>
+                </div>
+                <div class="poster">
+                    <h4>Status: Reading book jackets.</h4>
+                </div>
+            </div>
+            <div id="post-base"></div>
+            <div id="bg-rain-wrapper">
+                <div id="bg-rain"></div>
+            </div>
+        <style>
+            body{
+                color: white;
+                margin: 0;
+                background-image: repeating-linear-gradient(20deg, blue, darkblue, mediumblue 20em);
+            }
+            #bg-rain-wrapper {
+                position: absolute;
+                height: 200vh;
+                width: 100%;
+                top: 0;
+                z-index: -2;
+                font-size: 10px;
+                mask-image:
+                    repeating-linear-gradient(80deg, black 0 3.5em, transparent 4em, black 5em 6em, transparent 6.5em 7em),
+                    repeating-linear-gradient(-30deg, black 0 2.5em, transparent 3em 4em)
+                ;
+                animation: 2s linear infinite rain;
+            }
+            #bg-rain {
+                height: 100%;
+                width: 100%;
+                background: midnightblue;
+            }
+            #lantern {
+                height: 40em;
+                margin: auto;
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+            }
+            #canopy {
+                height: 30%;
+                width: 100%;
+                border-radius: 1em 1em 0em 0em;
+            }
+            #canopy-top {
+                height: 33%;
+                width: 50%;
+                margin: auto;
+                background-color: black;
+                border-radius: 5em 5em 0 0;
+            }
+            #canopy-bottom {
+                height: 67%;
+                width: 100%;
+                background-color: #202020;
+                clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            }
+            #globe {
+                width: 50%;
+                height: 50%;
+                background: goldenrod;
+                text-align: center;
+                text-wrap: wrap;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 3rem;
+                color: darkgoldenrod;
+                z-index: 2;
+            }
+            #glass {
+                background-color: yellow;
+                opacity: 0.3;
+                position:absolute;
+                height: 80%;
+                width: 100%;
+                bottom: 0;
+                z-index: 1;
+            }
+            #lantern-base {
+                background-color: #202020;
+                clip-path: polygon(25% 0, 75% 0, 100% 100%, 0% 100%);
+                width: 100%;
+                height: 20%;
+                background: linear-gradient(90deg,black,dimgray,dimgray,black);
+                border-bottom: 0.2rem solid black;
+            }
+            #lamp-post {
+                margin: auto;
+                background: linear-gradient(90deg,black,dimgray,dimgray,black);
+                width: 50%;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .poster {
+                background: gray;
+                min-width: 20em;
+                min-height: 2em;
+                text-align: center;
+                font-family: 'Times New Roman', Times, serif;
+                border: 0.1em black solid;
+                margin: 1em;
+            }
+            #post-base {
+                background-color: black;
+                width: 60%;
+                height: 10em;
+                margin: auto;
+                border-radius: 10% 10% 0 0;
+            }
+            @keyframes rain {
+                from {
+                    mask-position: 0 -50vh;
+                }
+                to {
+                    mask-position: 0 50vh;
+                }
+            }
+        </style>
+    </body>
+</html>
