@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Github Avatars</title>
+    </head>
+    <body>
+        <div id="avatars"></div>
+        <details id="boring-avatars">
+            <summary id="boring-avatars-counter">Broing Avatars: 0</summary>
+        </details>
+        <button onclick="rand_avatar()">More</button>
+        <script>
+          const avatars = document.getElementById('avatars');
+          const boring_avatars = document.getElementById('boring-avatars');
+          const boring_avatars_counter = document.getElementById('boring-avatars-counter');
+          let counter = 0
+          let blobs = {};
+          function rand_avatar() {
+            let img = new Image();
+            let id = randrange(0,100_000_000);
+            img.src = `https://avatars.githubusercontent.com/u/${id}?v=4`
+            img.id = id.toString();
+            avatars.appendChild(img);
+            img.onload = function(){
+                if (img.naturalHeight==420) {
+                  img.remove();
+                  boring_avatars.appendChild(img);
+                  counter++;
+                  boring_avatars_counter.textContent = `Boring Avatars: ${counter}`;
+                }
+            };
+          }
+          function randrange(a,b) {
+            return Math.round(Math.random()*(b-a+1)+a);
+          }
+          function download(id){
+              let av = document.getElementById(id);
+              const blob = av.blob();
+              const svgUrl = URL.createObjectURL(blob);
+              let downloadlink = document.createElement("a");
+              downloadlink.href = svgUrl
+              downloadlink.download = seed+".svg"
+              document.body.appendChild(downloadlink);
+              downloadlink.click();
+              document.body.removeChild(downloadlink);
+          }
+        </script>
+        <style>
+            img {
+                height: 10em;
+                width: 10em;
+            }
+        </style>
+    </body>
+</html>
